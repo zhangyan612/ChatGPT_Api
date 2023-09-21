@@ -1,4 +1,12 @@
 import requests
+import json
+
+# save gpt response to response folder
+def saveFile(fileName, data):
+    file_path = "responses/" + fileName+ ".json"
+    with open(file_path, "w") as json_file:
+        json.dump(data, json_file)
+    print(f"JSON data has been saved to {file_path}")
 
 
 class Completion:
@@ -12,10 +20,10 @@ class Completion:
             'model': model, 
             'messages': message
         }
-        x = requests.post(self.url, json = myobj)
+        response = requests.post(self.url, json = myobj)
 
         self.chat_history.append({'role': 'user', 'content': message})
-        return x.json()
+        return response.json()
 
     def get_chat_history(self):
         return self.chat_history
@@ -23,7 +31,7 @@ class Completion:
 
 
 chat = Completion()
-response = chat.create('Write a simple react todo app')
+response = chat.create('are you human?')
 
 print(response['choices'][0]['message']['content'])
-
+saveFile(str(response["created"]), response)
