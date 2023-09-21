@@ -1,5 +1,5 @@
 # ChatGPT_Automation
-Welcome to ChatGPT_Automation! 🤖🚀
+Turn your ChatGPT account into an api! 🤖🚀
 
 ChatGPT_Automation is a versatile Python library that serves as an interface for seamless communication with ChatGPT, an advanced language model developed by OpenAI. 🤖💬
 
