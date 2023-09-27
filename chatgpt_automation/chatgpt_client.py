@@ -12,6 +12,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import selenium.common.exceptions as Exceptions
+from bs4 import BeautifulSoup
 
 from .helpers import detect_chrome_version
 
@@ -270,6 +271,22 @@ class ChatGPT_Client:
             logging.info(f'Element {query} still here, something is wrong.')
         return
 
+    def extractCode(self, html_file):
+        try:
+            soup = BeautifulSoup(html_file, 'html.parser')
+            # Find all <code> tags in the HTML
+            code_tags = soup.find_all('code')
+            # Create a list to store the extracted code
+            extracted_code = []
+
+            # Extract the code from <code> tags and add it to the list
+            for tag in code_tags:
+                code = tag.get_text()
+                extracted_code.append(code)
+            return extracted_code
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
     def interact(self, question : str):
         '''
         Sends a question and retrieves the answer from the ChatGPT system.
@@ -304,9 +321,11 @@ class ChatGPT_Client:
         text_area.send_keys(Keys.RETURN)
         logging.info('Message sent, waiting for response')
         self.wait_until_disappear(By.CLASS_NAME, self.wait_cq)
-        answer = self.browser.find_elements(By.CLASS_NAME, self.chatbox_cq)[-1]
+        answer = self.browser.find_elements(By.CLASS_NAME, self.chatbox_cq)[-1]    
+        answer_html = answer.get_attribute('outerHTML')
+        code = self.extractCode(answer_html)
         logging.info('Answer is ready')
-        return answer.text
+        return answer.text, code
 
     def reset_thread(self):
         '''Function to close the current thread and start new one'''

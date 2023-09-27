@@ -35,9 +35,7 @@ chat = Completion()
 
 chatChain= []
 
-msg1 = 'Write a python script to git clone repository'
-msg2 = 'How to create algorithms and software that can interpret the users commands and translate them into specific tasks for the robotic arm'
-
+msg1 = 'Write a python script to run a windows application'
 
 response = chat.create(msg1)
 

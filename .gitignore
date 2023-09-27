@@ -27,3 +27,5 @@ share/python-wheels/
 MANIFEST
 
 *.ipynb
+
+responses/

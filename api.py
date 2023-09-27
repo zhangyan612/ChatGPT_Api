@@ -16,8 +16,7 @@ def home():
 def chat():
     data = request.json  # Assuming the request data is in JSON format
     
-    answer = chatgpt.interact(data['messages'])
-
+    answer, code = chatgpt.interact(data['messages'])
     result = {
         "choices": [
             {
@@ -25,6 +24,7 @@ def chat():
                 "index": 0,
                 "message": {
                     "content": answer,
+                    "code": code,
                     "role": "assistant"
                 }
             }
