@@ -31,7 +31,23 @@ class Completion:
 
 
 chat = Completion()
-response = chat.create('are you human?')
+
+
+chatChain= []
+
+msg1 = 'I have a 6 degree of freedom robotic arm and I want it to be able to listen to human language, understand environment and perform tasks'
+msg2 = 'How to create algorithms and software that can interpret the users commands and translate them into specific tasks for the robotic arm'
+
+
+
+response = chat.create(msg2)
+
+
+
+
 
 print(response['choices'][0]['message']['content'])
 saveFile(str(response["created"]), response)
+
+# TODO Get current conversation and new chat to add new conversation
+# figure out why sometimes not all code is being displayed. 
