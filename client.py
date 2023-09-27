@@ -39,11 +39,7 @@ msg1 = 'I have a 6 degree of freedom robotic arm and I want it to be able to lis
 msg2 = 'How to create algorithms and software that can interpret the users commands and translate them into specific tasks for the robotic arm'
 
 
-
 response = chat.create(msg2)
-
-
-
 
 
 print(response['choices'][0]['message']['content'])
