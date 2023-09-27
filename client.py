@@ -1,12 +1,12 @@
 import requests
-import json
-
-# save gpt response to response folder
-def saveFile(fileName, data):
-    file_path = "responses/" + fileName+ ".json"
-    with open(file_path, "w") as json_file:
-        json.dump(data, json_file)
-    print(f"JSON data has been saved to {file_path}")
+# import json
+from tools import saveFile
+# # save gpt response to response folder
+# def saveFile(fileName, data):
+#     file_path = "responses/" + fileName+ ".json"
+#     with open(file_path, "w") as json_file:
+#         json.dump(data, json_file)
+#     print(f"JSON data has been saved to {file_path}")
 
 
 class Completion:
@@ -35,15 +35,15 @@ chat = Completion()
 
 chatChain= []
 
-msg1 = 'I have a 6 degree of freedom robotic arm and I want it to be able to listen to human language, understand environment and perform tasks'
+msg1 = 'Write a python script to git clone repository'
 msg2 = 'How to create algorithms and software that can interpret the users commands and translate them into specific tasks for the robotic arm'
 
 
-response = chat.create(msg2)
+response = chat.create(msg1)
 
 
 print(response['choices'][0]['message']['content'])
-saveFile(str(response["created"]), response)
+saveFile('responses', str(response["created"]), response)
 
 # TODO Get current conversation and new chat to add new conversation
 # figure out why sometimes not all code is being displayed. 

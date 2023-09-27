@@ -241,7 +241,7 @@ class ChatGPT_Client:
             time.sleep(sleep_duration)
         return item
 
-    def wait_until_disappear(self, by, query, timeout_duration=15):
+    def wait_until_disappear(self, by, query, timeout_duration=30):
         '''
         Waits until the specified web element disappears from the page.
 
