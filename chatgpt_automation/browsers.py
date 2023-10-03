@@ -41,6 +41,7 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument(f"executable_path={webdriver_path}")
 browser = webdriver.Chrome(options=chrome_options)
 
+
 # Navigate to Google
 browser.get("https://www.google.com")
 
@@ -75,4 +76,10 @@ with open(filename, 'w', encoding='utf-8') as file:
 
 parseResult.parseHtmlSearchResult(folder_name, filename)
 # Close the browser when done
+
+#for each result visit the link and download the article
+
+
+
+
 browser.quit()

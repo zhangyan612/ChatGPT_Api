@@ -11,6 +11,14 @@ This work is based on ChatGPT_Automation project.
 
 Before you begin, please ensure that you have Chrome installed on your system. To successfully pass the Cloudflare robot test, it is necessary to have undetected-chrome. 🌐🔒
 
+## TODO
+Code Understanding
+    Auto segement functions in code
+    Auto desciption of each function by LLM
+    Create reference tree of each functions
+    https://github.com/imartinez/privateGPT
+
+
 ## Installation
 git clone the repo
 
