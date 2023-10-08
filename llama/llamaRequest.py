@@ -53,7 +53,7 @@ pipeline = transformers.pipeline(
 )
 
 sequences = pipeline(
-    'I liked "Breaking Bad" and "Band of Brothers". Do you have any recommendations of other shows I might like?\n',
+    'Do you know how to write python codeS?\n',
     do_sample=True,
     top_k=10,
     num_return_sequences=1,
