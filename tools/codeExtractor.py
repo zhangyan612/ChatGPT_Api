@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 
 # Replace 'input_file.html' with the name of your HTML file
-
+# Extract code from chatgpt response 
 def extractCode(html_file):
     try:
         soup = BeautifulSoup(html_file, 'html.parser')

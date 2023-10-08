@@ -1,0 +1,6 @@
+when I install a package on my computer, sometimes it works, sometimes there are errors, I want to record all commands I tried and log the result/erros in a log file
+
+
+pip install pylint --log LOG_FILE
+
+pip install llama-cpp-python --force-reinstall --upgrade --no-cache-dir -vv --log install_log.txt
