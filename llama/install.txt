@@ -6,3 +6,26 @@ pip uninstall tokenizers
 pip install tokenizers=0.13.3
 
 pip install accelerate
+
+
+
+--llama direct
+python -m torch.distributed.run --nproc_per_node 1 example_text_completion.py --ckpt_dir llama-2-7b --tokenizer_path llama-2-7b/tokenizer.model --max_seq_len 512 --max_batch_size 6
+torchrun --nproc_per_node 1 example_text_completion.py --ckpt_dir llama-2-7b --tokenizer_path llama-2-7b/tokenizer.model --max_seq_len 512 --max_batch_size 6
+
+
+--llama cpp
+
+# install Python dependencies
+python3 -m pip install -r requirements.txt
+
+#download model and place in models folder --for llama create 7B folder
+
+# convert the 7B model to ggml FP16 format
+python3 convert.py models/7B/
+
+# go to build/bin folder and run quantize
+quantize.exe D:/AI/llama.cpp/models/7B/ggml-model-f16.gguf D:/AI/llama.cpp/models/7B/ggml-model-q4_0.gguf q4_0
+
+# run the inference
+main.exe -m D:/AI/llama.cpp/models/7B/ggml-model-q4_0.gguf -n 128
