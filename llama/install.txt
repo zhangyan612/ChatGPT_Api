@@ -29,3 +29,15 @@ quantize.exe D:/AI/llama.cpp/models/7B/ggml-model-f16.gguf D:/AI/llama.cpp/model
 
 # run the inference
 main.exe -m D:/AI/llama.cpp/models/7B/ggml-model-q4_0.gguf -n 128
+
+# in bash script 
+./build/bin/Release/main.exe -m "D:/AI/llama.cpp/models/7B/ggml-model-q4_0.gguf" -c 512 -b 1024 -n 256 --keep 48 --repeat_penalty 1.0 --color -i -r "User:" -f "D:/AI/llama.cpp/prompts/chat-with-bob.txt"
+
+
+
+
+
+pip install litellm
+
+-- fix charset issue
+pip install --force-reinstall charset-normalizer==3.1.0
