@@ -18,8 +18,10 @@ model.config.forced_decoder_ids = None
 # ds = load_dataset("hf-internal-testing/librispeech_asr_dummy", "clean", split="validation")
 # sample = ds[0]["audio"]
 
+# success in running local file
+
 # Specify the path to your local WAV file
-wav_file_path = "C:/Users/JohnSong/Desktop/OSR_us_000_0010_8k.wav"
+wav_file_path = "D:\Download\sample1.flac"
 
 # Load the audio file using torchaudio
 input_audio, _ = torchaudio.load(wav_file_path)

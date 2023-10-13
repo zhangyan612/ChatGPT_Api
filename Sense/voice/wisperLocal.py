@@ -5,6 +5,8 @@ from datasets import load_dataset
 # pip install librosa 
 # pip install soundfile
 
+# Success local speech recognition
+
 # load model and processor
 processor = WhisperProcessor.from_pretrained("openai/whisper-large-v2")
 model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-large-v2")
