@@ -8,6 +8,8 @@ print(os.environ['HUGGINGFACE_API_KEY'])
 messages = [{ "content": "There's a llama in my garden 😱 What should I do?","role": "user"}]
 
 # e.g. Call 'WizardLM/WizardCoder-Python-34B-V1.0' hosted on HF Inference endpoints
+# Need hugginface pro
+
 response = completion(
   model="huggingface/WizardLM/WizardCoder-Python-34B-V1.0", 
   messages=messages, 

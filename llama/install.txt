@@ -36,7 +36,6 @@ main.exe -m D:/AI/llama.cpp/models/7B/ggml-model-q4_0.gguf -n 128
 
 
 
-
 pip install litellm
 
 -- fix charset issue

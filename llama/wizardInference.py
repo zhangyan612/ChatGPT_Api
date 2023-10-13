@@ -13,6 +13,7 @@ API_TOKEN = os.environ['HUGGINGFACE_API_KEY']
 # data = query({"inputs": "Can you write python code? ."})
 # print(data)
 
+# Need huggingface pro account
 
 import json
 import requests
