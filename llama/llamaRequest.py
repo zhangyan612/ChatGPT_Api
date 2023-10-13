@@ -1,6 +1,5 @@
 # import requests
 
-apiToken = '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'
 # API_URL = "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-hf"
 # headers = {"Authorization": f"Bearer {apiToken}"}
 
@@ -39,12 +38,15 @@ import os
 os.environ['TRANSFORMERS_CACHE'] = 'D:/huggingface'
 
 
+
 from transformers import AutoTokenizer
 import transformers
 import torch
 model = "meta-llama/Llama-2-7b-chat-hf"
 
-tokenizer = AutoTokenizer.from_pretrained(model, use_auth_token=True)
+
+
+tokenizer = AutoTokenizer.from_pretrained(model, use_auth_token=True, use_flash_attention_2=True)
 pipeline = transformers.pipeline(
     "text-generation",
     model=model,
