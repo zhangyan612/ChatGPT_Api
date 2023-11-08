@@ -27,10 +27,6 @@
 # print(data)
 
 
-# from llama_cpp import GGML_USE_CUBLAS
-# print(GGML_USE_CUBLAS)
-
-
 # huggingface-cli login
 
 # make sure to download model file to d drive
