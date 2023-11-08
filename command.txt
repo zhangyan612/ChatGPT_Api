@@ -13,3 +13,22 @@ huggingface-cli login
 pip install accelerate
 
 install cuda by going to their website- current version 12.2
+
+
+
+tensorflow guide
+https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/install.html
+
+-- fix missing builder.py file
+Install the latest protobuf version (in my case is 4.21.1)
+pip install --upgrade protobuf
+
+Copy builder.py from .../Lib/site-packages/google/protobuf/internal to another folder on your computer (let's say 'Documents')
+Install a protobuf version that is compatible with your project (for me 3.19.4)
+pip install protobuf==3.19.4
+
+Copy builder.py from (let's say 'Documents') to Lib/site-packages/google/protobuf/internal
+Run your code
+
+
+pip install opencv-contrib-python

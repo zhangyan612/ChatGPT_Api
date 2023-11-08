@@ -3,6 +3,7 @@
 """
 Detect Objects Using Your Webcam
 conda activate tf
+working under tf conda
 ================================
 """
 
