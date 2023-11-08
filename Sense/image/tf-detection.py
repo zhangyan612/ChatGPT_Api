@@ -73,6 +73,7 @@ if not os.path.exists(PATH_TO_CKPT):
     os.remove(PATH_TO_MODEL_TAR)
     print('Done')
 else:
+    print('Model download path is')
     print(PATH_TO_CFG)
     print(PATH_TO_CKPT)
 # Download labels file
