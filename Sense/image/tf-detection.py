@@ -26,6 +26,7 @@ import os
 
 DATA_DIR = os.path.join(os.getcwd(), 'data')
 MODELS_DIR = os.path.join(DATA_DIR, 'models')
+
 for dir in [DATA_DIR, MODELS_DIR]:
     if not os.path.exists(dir):
         os.mkdir(dir)
@@ -61,6 +62,7 @@ MODEL_DOWNLOAD_LINK = MODELS_DOWNLOAD_BASE + MODEL_DATE + '/' + MODEL_TAR_FILENA
 PATH_TO_MODEL_TAR = os.path.join(MODELS_DIR, MODEL_TAR_FILENAME)
 PATH_TO_CKPT = os.path.join(MODELS_DIR, os.path.join(MODEL_NAME, 'checkpoint/'))
 PATH_TO_CFG = os.path.join(MODELS_DIR, os.path.join(MODEL_NAME, 'pipeline.config'))
+
 if not os.path.exists(PATH_TO_CKPT):
     print('Downloading model. This may take a while... ', end='')
     urllib.request.urlretrieve(MODEL_DOWNLOAD_LINK, PATH_TO_MODEL_TAR)
@@ -69,7 +71,9 @@ if not os.path.exists(PATH_TO_CKPT):
     tar_file.close()
     os.remove(PATH_TO_MODEL_TAR)
     print('Done')
-
+else:
+    print(PATH_TO_CFG)
+    print(PATH_TO_CKPT)
 # Download labels file
 LABEL_FILENAME = 'mscoco_label_map.pbtxt'
 LABELS_DOWNLOAD_BASE = \
@@ -79,6 +83,8 @@ if not os.path.exists(PATH_TO_LABELS):
     print('Downloading label file... ', end='')
     urllib.request.urlretrieve(LABELS_DOWNLOAD_BASE + LABEL_FILENAME, PATH_TO_LABELS)
     print('Done')
+else:
+    print(PATH_TO_LABELS)
 
 # %%
 # Load the model
