@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-# working under huggingface conda
+# not working Failed to open NetParameter file: yolov8.cfg
 # Load YOLO
 net = cv2.dnn.readNet("yolov8.weights", "yolov8.cfg")
 layer_names = net.getLayerNames()

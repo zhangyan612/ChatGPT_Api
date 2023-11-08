@@ -4,6 +4,7 @@ import cv2
 import numpy as np
 from PIL import Image
 
+# Working but slow
 # Initialize the webcam
 cap = cv2.VideoCapture(0)
 

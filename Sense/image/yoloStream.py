@@ -80,6 +80,8 @@ from ultralytics import YOLO
 import cv2
 import numpy as np
 
+
+# not working
 # Load YOLO
 # net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
 model = YOLO("yolov8n.pt")

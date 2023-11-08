@@ -1,7 +1,7 @@
 import cv2
 from ultralytics import YOLO
 
-# not working
+# success under conda huggingface, faster than tensorflow
 # Load the YOLOv8 model
 model = YOLO('yolov8n.pt')
 
