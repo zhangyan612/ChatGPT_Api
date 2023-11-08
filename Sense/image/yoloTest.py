@@ -1,7 +1,8 @@
 from ultralytics import YOLO
 
 
-# yolo success
+# yolo image test success
+
 # 0: 480x640 2 cats, 1 couch, 2 remotes, 35.0ms
 # Speed: 5.9ms preprocess, 35.0ms inference, 3.0ms postprocess per image at shape (1, 3, 480, 640)
 
