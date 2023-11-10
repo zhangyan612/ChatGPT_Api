@@ -35,3 +35,8 @@ Run your code
 
 
 pip install opencv-contrib-python
+
+
+Voice
+TTS
+pip install TTS
