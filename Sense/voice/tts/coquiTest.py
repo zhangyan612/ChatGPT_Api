@@ -1,6 +1,8 @@
 import torch
 from TTS.api import TTS
 
+# not working 
+
 # Get device
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(device)
