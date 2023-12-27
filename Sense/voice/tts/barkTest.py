@@ -13,8 +13,8 @@ preload_models()
 
 # generate audio from text
 text_prompt = """
-     Hello, my name is diana and I like sucking yan's dick. [laughs] 
-     But I also have other interests such as anal.
+     Hello, my name is diana and I like apple. [laughs] 
+     But I also have other interests such as swimming.
 """
 audio_array = generate_audio(text_prompt)
 
