@@ -1,10 +1,7 @@
 
-# from pydub import AudioSegment
-# from pydub.playback import play
-
 import os
 import time
-# import multiprocessing
+import vlc
 
 OUTPUT_FILE = f"20231229-152351.mp3"
 
@@ -14,17 +11,15 @@ OUTPUT_FILE = os.path.join(cwd, f"Sense/voice/tts/generated/{OUTPUT_FILE}")
 print(OUTPUT_FILE)
 
 # both solution works but need to add sleep for the duration of video
-import vlc
-p = vlc.MediaPlayer(OUTPUT_FILE)
-p.play()
 
-# player = multiprocessing.Process(target=p, args=(OUTPUT_FILE,))
-time.sleep(1)
+def playSound(file):
+    p = vlc.MediaPlayer(file)
+    p.play()
 
-while p.is_playing():
     time.sleep(1)
-
-print("The audio has finished playing.")
+    while p.is_playing():
+        time.sleep(1)
+    # print("The audio has finished playing.")
 
 
 # from pygame import mixer
@@ -33,3 +28,7 @@ print("The audio has finished playing.")
 # mixer.music.play()
 
 # time.sleep(20)
+
+
+
+playSound(OUTPUT_FILE)

@@ -8,11 +8,12 @@ import random
 import time
 import os
 import subprocess
+import vlc
 
 import edge_tts
 from edge_tts import VoicesManager
 
-TEXT = "Bye Bye"
+TEXT = "Hello this is a test run"
 VOICE = "en-US-SteffanNeural"
 
 # Generate a timestamp for the output file name
@@ -20,12 +21,15 @@ timestamp = time.strftime("%Y%m%d-%H%M%S")
 
 # Get the current working directory
 cwd = os.getcwd()
-print(cwd)
 OUTPUT_FILE = os.path.join(cwd, f"Sense/voice/tts/generated/{timestamp}.mp3")
-print(OUTPUT_FILE)
+# print(OUTPUT_FILE)
 
-# OUTPUT_FILE = f"./generated/{timestamp}.mp3"
-
+def playSound(file):
+    p = vlc.MediaPlayer(file)
+    p.play()
+    time.sleep(1)
+    while p.is_playing():
+        time.sleep(1)
 
 async def amain() -> None:
     """Main function"""
@@ -42,7 +46,7 @@ async def amain() -> None:
                 print(f"WordBoundary: {chunk}")
 
     # Play the generated audio file
-    subprocess.call(["mpg123", OUTPUT_FILE])
+    playSound(OUTPUT_FILE)
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop_policy().get_event_loop()
