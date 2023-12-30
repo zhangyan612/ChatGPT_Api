@@ -4,25 +4,10 @@
 Fastest TTS engine
 """
 import asyncio
-import random
 import time
 import os
-import subprocess
 import vlc
-
 import edge_tts
-from edge_tts import VoicesManager
-
-TEXT = "Hello this is a test run"
-VOICE = "en-US-SteffanNeural"
-
-# Generate a timestamp for the output file name
-timestamp = time.strftime("%Y%m%d-%H%M%S")
-
-# Get the current working directory
-cwd = os.getcwd()
-OUTPUT_FILE = os.path.join(cwd, f"Sense/voice/tts/generated/{timestamp}.mp3")
-# print(OUTPUT_FILE)
 
 def playSound(file):
     p = vlc.MediaPlayer(file)
@@ -31,14 +16,16 @@ def playSound(file):
     while p.is_playing():
         time.sleep(1)
 
-async def amain() -> None:
-    """Main function"""
-    # voices = await VoicesManager.create()
-    # voice = voices.find(Gender="Male", Language="en")
-    # print(voice)
+async def generate_voice(text="Hello this is a test run", voice="en-US-SteffanNeural"):
+    # Generate a timestamp for the output file name
+    timestamp = time.strftime("%Y%m%d-%H%M%S")
 
-    communicate = edge_tts.Communicate(TEXT, VOICE)
-    with open(OUTPUT_FILE, "wb") as file:
+    # Get the current working directory
+    cwd = os.getcwd()
+    output_file = os.path.join(cwd, f"Sense/voice/tts/generated/{timestamp}.mp3")
+
+    communicate = edge_tts.Communicate(text, voice)
+    with open(output_file, "wb") as file:
         async for chunk in communicate.stream():
             if chunk["type"] == "audio":
                 file.write(chunk["data"])
@@ -46,15 +33,14 @@ async def amain() -> None:
                 print(f"WordBoundary: {chunk}")
 
     # Play the generated audio file
-    playSound(OUTPUT_FILE)
+    playSound(output_file)
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop_policy().get_event_loop()
     try:
-        loop.run_until_complete(amain())
+        loop.run_until_complete(generate_voice())
     finally:
         loop.close()
-
 
 
 
