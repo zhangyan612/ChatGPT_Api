@@ -8,7 +8,11 @@
 from transformers import WhisperProcessor, WhisperForConditionalGeneration
 # from datasets import load_dataset
 import torchaudio
+import datetime
 
+
+
+print(datetime.datetime.now())
 # load model and processor
 processor = WhisperProcessor.from_pretrained("openai/whisper-large-v2")
 model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-large-v2")
@@ -40,3 +44,4 @@ predicted_ids = model.generate(input_features)
 transcription = processor.batch_decode(predicted_ids, skip_special_tokens=True)
 
 print(transcription)
+print(datetime.datetime.now())
