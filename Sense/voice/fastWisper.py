@@ -1,7 +1,7 @@
 from faster_whisper import WhisperModel
 import datetime
 
-model_size = "large-v3"
+model_size = "base.en"
 
 # works on cpu
 # for gpu
