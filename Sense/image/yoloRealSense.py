@@ -40,7 +40,6 @@ while True:
         for box in boxes:
             b = box.xyxy[0]  # get box coordinates in (left, top, right, bottom) format
             c = box.cls
-            annotator.box_label(b, model.names[int(c)])
 
             # Calculate depth
             depth = depth_image[int(b[1]):int(b[3]), int(b[0]):int(b[2])].astype(float)
@@ -49,13 +48,17 @@ while True:
 
             # Add depth info to the bounding box
             cv2.putText(color_image, f"Depth: {dist:.2f} m", (int(b[0]), int(b[1])-10), cv2.FONT_HERSHEY_PLAIN, 1.0, (0,0,0), 1)
+            annotator.box_label(b, model.names[int(c)] + f" Depth: {dist:.2f} m")
 
     # Show the images
     color_image = annotator.result()
     cv2.imshow('YOLO V8 Detection', color_image)
-    depth_colormap = cv2.applyColorMap(cv2.convertScaleAbs(depth_image, alpha=0.3), cv2.COLORMAP_JET)
-    cv2.imshow('Depth Image', depth_colormap)
-
+    
+    # show depth image
+    # depth_colormap = cv2.applyColorMap(cv2.convertScaleAbs(depth_image, alpha=0.3), cv2.COLORMAP_JET)
+    # cv2.imshow('Depth Image', depth_colormap)
+    
+    # space key to exit
     if cv2.waitKey(1) & 0xFF == ord(' '):
         break
 
