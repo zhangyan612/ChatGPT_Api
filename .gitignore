@@ -33,3 +33,5 @@ log/
 
 Sense/image/data
 Sense/voice/tts/generated
+
+.env
