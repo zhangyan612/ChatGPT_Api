@@ -1,3 +1,7 @@
+Skills related to operations on a computer, include running code, start a program, manage files and folders, perform installation etc.
+
+
+
 when I install a package on my computer, sometimes it works, sometimes there are errors, I want to record all commands I tried and log the result/erros in a log file
 
 
