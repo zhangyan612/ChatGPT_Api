@@ -3,3 +3,17 @@
 make llm learn from observation and summarize into knowledge
 
 https://bratanic-tomaz.medium.com/constructing-knowledge-graphs-from-text-using-openai-functions-096a6d010c17
+
+
+TODO:
+Run robot framework test RPA  (Add automation into RPA)
+Run GPT planning prompt to generate json
+Json convert to robot framework format to execute RPA
+
+Figure out feedback evluation once RPA action is finished (idea: write test case using gpt and run it with the output, for vision, take picture and throw to LLAVA)
+
+local knowledge base and memory with langchain embedding 
+
+evluate open source llm like llama2 phi for task planning and fine turnning one into robot LLM optimized for planning
+
+figure out how to switch between agent in autogen 
