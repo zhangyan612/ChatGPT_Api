@@ -80,3 +80,25 @@ Do not use punctuation
 Your response will be read out by the robot speech module
 Your reponse should not contain any special characters
 """)
+
+
+# Problem solving
+Write <language> code to achieve the expected output:
+context: from pathlib import Path,  Path(".").absolute() returns WindowsPath('D:/AI/langchain/cookbook') 
+input:  
+output: D:/AI/langchain/docs/docs/modules/state_of_the_union.txt
+
+
+# improve llm by environemnt feedback
+
+<!-- gpt response not working in my case -->
+Error:
+'gbk' codec can't decode byte 0x9d in position 1205: illegal multibyte sequence
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb2 in position 5: invalid start byte
+
+How to fix above error globally?
+
+# -*- coding: utf-8 -*-
+search online for additinal solution
+find something diff like: 
+solution: change system encoding
