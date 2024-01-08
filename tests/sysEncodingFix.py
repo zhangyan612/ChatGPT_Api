@@ -8,7 +8,6 @@ outputText = subprocess.run(
     stdout=subprocess.PIPE,
     stderr=subprocess.STDOUT,
 ).stdout #.decode('gbk')
-import chardet # detect the encoding of text 
 
 encodingInfo = chardet.detect(outputText)
 encoding = encodingInfo['encoding']
